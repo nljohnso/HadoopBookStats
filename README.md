@@ -20,19 +20,19 @@ Breakdown of Classes
 
 ### cs455.hadoop.Mapper
 
-**BookStatsMapper.java** - This mapper parses each block of data given to it and writes to the reducer the following key value pair: <filename, BookStatsWritable>.
+**BookStatsMapper.java** - This mapper parses each block of data given to it and writes to the reducer the following key value pair: ```<filename, BookStatsWritable>```.
 
-**BookNGramMapper.java** - This mapper also parses the file for a specified ngram value. It writes to the reducer the following key value pair: <filename + ngram, NGramWritable>.
+**BookNGramMapper.java** - This mapper also parses the file for a specified ngram value. It writes to the reducer the following key value pair: ```<filename + ngram, NGramWritable>```.
 
-**MostFreqNGramMapper.java** - This mapper parses the file outputted by the ngram parse job. It writes to the reducer the following key value pair: <filename, CommonNGramWritable>.
+**MostFreqNGramMapper.java** - This mapper parses the file outputted by the ngram parse job. It writes to the reducer the following key value pair: ```<filename, CommonNGramWritable>```.
 
-**TermFreqMapper.java** - This mapper parses the file outputted by the most frequent ngram calculation job.  It writes to the reducer the following key value pair: <filename + ngram, TermFreqWritable>.
+**TermFreqMapper.java** - This mapper parses the file outputted by the most frequent ngram calculation job.  It writes to the reducer the following key value pair: ```<filename + ngram, TermFreqWritable>```.
 
-**FreqDataMapper.java** - This mapper parses the file outputted by the ngram frequency calculation job.  It writes to the reducer the following key value pair: <ngram, FreqDataWritable>.
+**FreqDataMapper.java** - This mapper parses the file outputted by the ngram frequency calculation job.  It writes to the reducer the following key value pair: ```<ngram, FreqDataWritable>```.
 
-**TFIDFMapper.java** - This mapper parses the file outputted by the ngram document frequency calculation job.  It writes to the reducer the following key value pair: <filename + nGram, NGramStatsWritable>.
+**TFIDFMapper.java** - This mapper parses the file outputted by the ngram document frequency calculation job.  It writes to the reducer the following key value pair: ```<filename + nGram, NGramStatsWritable>```.
 
-**NGramStatsMapper.java** - This is an optional mapper that parses the file outputted by the TFIDF calculation job.  It writes to the reducer the following key value pair: <decade + nGram, NGramStatsWritable>.
+**NGramStatsMapper.java** - This is an optional mapper that parses the file outputted by the TFIDF calculation job.  It writes to the reducer the following key value pair: ```<decade + nGram, NGramStatsWritable>```.
 
 ### cs455.hadoop.Parser
 
@@ -42,19 +42,19 @@ Breakdown of Classes
 
 ### cs455.hadoop.Reducer
 
-**BookStatsReducer.java** - This reducer takes in filenames and sums up the total number of words, sentences, and syllables and then calculates the Flesch reading ease and grade level. It writes the following key value pair to the output file: <filename, BookStatsWritable>.
+**BookStatsReducer.java** - This reducer takes in filenames and sums up the total number of words, sentences, and syllables and then calculates the Flesch reading ease and grade level. It writes the following key value pair to the output file: ```<filename, BookStatsWritable>```.
 
-**BookNGramReducer.java** - This reducer takes in ngrams that have a specified book and sums up the total number of like-ngrams for that book. It writes the following key value pair to the output file: <filename + ngram, NGramWritable>.
+**BookNGramReducer.java** - This reducer takes in ngrams that have a specified book and sums up the total number of like-ngrams for that book. It writes the following key value pair to the output file: ```<filename + ngram, NGramWritable>```.
 
-**MostFreqNGramReducer.java** - This reducer takes in filenames and finds their most commonly occurring ngram.  It writes the following key value pair to the output file: <filename + ngram, CommonNGramWritable>.
+**MostFreqNGramReducer.java** - This reducer takes in filenames and finds their most commonly occurring ngram.  It writes the following key value pair to the output file: ```<filename + ngram, CommonNGramWritable>```.
 
-**TermFreqReducer.java** - This reducer takes in ngrams that have a specified book and calculates it's term frequency for that book.  It writes the following key value pair to the output file: <filename + ngram, TermFreqWritable>.
+**TermFreqReducer.java** - This reducer takes in ngrams that have a specified book and calculates it's term frequency for that book.  It writes the following key value pair to the output file: ```<filename + ngram, TermFreqWritable>```.
 
-**FreqDataReducer.java** - This reducer takes in a ngram and calculates how many books that ngram occurs in within the corpus.  It writes the following key value pair to the output file: <ngram + filename, FreqDataWritable>.
+**FreqDataReducer.java** - This reducer takes in a ngram and calculates how many books that ngram occurs in within the corpus.  It writes the following key value pair to the output file: ```<ngram + filename, FreqDataWritable>```.
 
-**TFIDFReducer.java** - This reducer takes in a ngram that has a specified book and calculates their inverse document frequencies and TF-IDF's. It writes the following key value pair to the output file: <filename, NGramStatsWritable>.
+**TFIDFReducer.java** - This reducer takes in a ngram that has a specified book and calculates their inverse document frequencies and TF-IDF's. It writes the following key value pair to the output file: ```<filename, NGramStatsWritable>```.
 
-**NGramStatsMapper.java** - This reducer takes in a ngram that has a specified decade of publication and outputs the following key value pair to the output file: <decade, NGramStatsWritable>.
+**NGramStatsMapper.java** - This reducer takes in a ngram that has a specified decade of publication and outputs the following key value pair to the output file: ```<decade, NGramStatsWritable>```.
 
 ### cs455.hadoop.Writable
 
