@@ -1,3 +1,8 @@
+Summary
+-------
+This project analyzes books published by authors spanning decades/centuries.  This Hadoop setup (version 2.3.0) implements the MapReduce paradigm.  It computes the Flesch Reading Ease and Flesh-Kincaid Grade Level scores for the documents. Additionally it extracts N-grams and computes Term Frequency-Inverse Document Frequency (TF-IDF) scores for terms within the corpus. The Hadoop cluster is setup with HDFS running on each machine.
+
+
 Usage
 -----
 ```$HADOOP_HOME/bin/hadoop``` ```jar``` ```[Jar Name].jar``` ```cs455.hadoop.Job.BookAnalyzer``` ```[Input file/directory]``` ```[Reading Ease/Grade Level Output location]``` ```[NGram Frequencies Output location]```
