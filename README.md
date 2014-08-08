@@ -1,6 +1,6 @@
 USAGE
 -----
-```$HADOOP_HOME/bin/hadoop jar``` ```[Jar Name].jar``` cs455.hadoop.Job.BookAnalyzer ```[Input file/directory]``` ```[Reading Ease/Grade Level Output location]``` ```[NGram Frequencies Output location]```
+```$HADOOP_HOME/bin/hadoop jar``` ```[Jar Name].jar``` ```cs455.hadoop.Job.BookAnalyzer``` ```[Input file/directory]``` ```[Reading Ease/Grade Level Output location]``` ```[NGram Frequencies Output location]```
 
 BEFORE RUNNING
 --------------
