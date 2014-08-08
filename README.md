@@ -1,21 +1,25 @@
-USAGE
+Usage
 -----
 ```$HADOOP_HOME/bin/hadoop``` ```jar``` ```[Jar Name].jar``` ```cs455.hadoop.Job.BookAnalyzer``` ```[Input file/directory]``` ```[Reading Ease/Grade Level Output location]``` ```[NGram Frequencies Output location]```
 
 Example: ```$HADOOP_HOME/bin/hadoop jar HadoopBookStats.jar cs455.hadoop.Job.BookAnalyzer /corpus /output/bookStats1 /output/nGramStats2```
 
-BEFORE RUNNING
+Before Running
 --------------
 1.  Need to make sure intermediate files don't already exist. If they do change their names to something that don't exist in BookAnalyzer.java
 2.  Change the number of files in your corpus in TermFreqMapper.java
 3.  Change the ngram value in BookNGramMapper.java to 1,2,3, or 4.
 
-cs455.hadoop.Job
-----------------
+
+Breakdown of Classes
+--------------------
+
+### cs455.hadoop.Job
+
 **BookAnalyzer.java** - The main of the program which is responsible for creating jobs and their configurations.
 
-cs455.hadoop.Mapper
--------------------
+### cs455.hadoop.Mapper
+
 **BookStatsMapper.java** - This mapper parses each block of data given to it and writes to the reducer the following key value pair: <filename, BookStatsWritable>.
 
 **BookNGramMapper.java** - This mapper also parses the file for a specified ngram value. It writes to the reducer the following key value pair: <filename + ngram, NGramWritable>.
@@ -30,14 +34,14 @@ cs455.hadoop.Mapper
 
 **NGramStatsMapper.java** - This is an optional mapper that parses the file outputted by the TFIDF calculation job.  It writes to the reducer the following key value pair: <decade + nGram, NGramStatsWritable>.
 
-cs455.hadoop.Parser
--------------------
+### cs455.hadoop.Parser
+
 **Parser.java** - Uses regular expressions to parse a Sentence into words or ngrams.
 
 **Sentence.java** - An object that contains a string that has ngram computation methods.
 
-cs455.hadoop.Reducer
---------------------
+### cs455.hadoop.Reducer
+
 **BookStatsReducer.java** - This reducer takes in filenames and sums up the total number of words, sentences, and syllables and then calculates the Flesch reading ease and grade level. It writes the following key value pair to the output file: <filename, BookStatsWritable>.
 
 **BookNGramReducer.java** - This reducer takes in ngrams that have a specified book and sums up the total number of like-ngrams for that book. It writes the following key value pair to the output file: <filename + ngram, NGramWritable>.
@@ -52,8 +56,7 @@ cs455.hadoop.Reducer
 
 **NGramStatsMapper.java** - This reducer takes in a ngram that has a specified decade of publication and outputs the following key value pair to the output file: <decade, NGramStatsWritable>.
 
-cs455.hadoop.Writable
----------------------
+### cs455.hadoop.Writable
 
 **BookStatsWritable.java** - This class implements Writable and contains word count, sentence count, syllable count, flesch reading ease, and flesch grade level.
 
